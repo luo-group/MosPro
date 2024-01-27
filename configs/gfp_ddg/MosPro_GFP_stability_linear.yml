@@ -1,0 +1,29 @@
+task: GFP
+predictor_1_dir: logs_percentile_0.4/GFP_ddg/train_predictor_ddg4GFP_percentile_0.4_2024_01_20__13_13_51_augment
+predictor_2_dir: logs_percentile_0.4/GFP_ddg/train_predictor_GFP_percentile_0.4_2024_01_20__13_12_41_augment
+predictor_1_type: BaseCNN
+predictor_2_type: BaseCNN
+csv_path: data/GFP/ground_truth_GFP_stability_percentile_0.4.csv
+cluster_cutoff: 500
+max_visits: 1
+max_epochs: 15
+# run_name: run_${now:%Y-%m-%d}_${now:%H-%M-%S} #IE_${run.max_epochs}  -- use this name if you don't want the date, but instead the number of epochs
+debug: False
+seed: 1
+temperature: 0.01
+gibbs_samples: 100
+verbose: False
+ckpt_name: best_checkpoints.pt
+inverse_sign_1: True
+inverse_sign_2: False
+gradient_compose_method: linear # linear, pareto, pareto_moosvgd, pareto_pref_vec
+linear_weight_1: 0.5
+balance_weight_1: 1
+balance_weight_2: 1
+lambd: 1.0
+weight_1: 1.0
+weight_2: 1.0
+lambda_method: lambda # alpha_lambda, lambda, 2_weight
+mutation_sites: null # None means no limitations
+pref_index: 0 #[0, 4]
+normalize_grad: False

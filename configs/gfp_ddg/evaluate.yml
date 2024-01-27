@@ -1,0 +1,17 @@
+sample_path: ./logs_new/GWG_2_2023_10_03__09_45_59_weight_1.5_0.5/samples_20231003-094559/seed_1.csv
+base_pool_path: data/GFP/ground_truth_GFP_stability_percentile_0.4.csv
+tmp_dir: tmp_foldx/tmp_
+ref_seq_fasta: data/GFP/GFP_reference_seq_aa.fasta
+topk1: 50
+topk2: 50
+repaired_ref_pdb: data/foldx/outputs_af2/ref_seq_af2_Repair.pdb
+ground_truth_stability: data/GFP/stability_foldx_deduplicate_af2.csv
+ground_truth_GFP: data/GFP/GFP_ground_truth_deduplicate.csv
+GFP_oracle_dir: oracle_GFP_ggs
+foldx_cache: data/foldx/cache.json
+selection_method: random_selection # topk_selection, nested_selection, random_selection, single_task_selection, max_hv_selection
+num_select: 500
+ref_score_1: null
+ref_score_2: null
+inverse_sign_1: False
+inverse_sign_2: True

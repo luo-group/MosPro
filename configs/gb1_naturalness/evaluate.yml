@@ -1,0 +1,9 @@
+gt_csv_path: data/gb1/naturalness/ground_truth_gb1_ddg_wt_naturalness.csv
+base_pool_path: data/gb1/naturalness/ground_truth_gb1_wt_naturalness_normalized_quantile_0.4.csv
+sample_path: logs_new/train_predictor_ddg_0_0.4_2023_10_05__15_12_56_agument/samples_20231005-163745/seed_1.csv
+num_select: 500
+selection_method: random_selection # topk_selection, nested_selection, random_selection, single_task_selection, max_hv_selection
+inverse_sign_1: False
+inverse_sign_2: False
+ref_score_1: -7.141837120056152
+ref_score_2: 0.0

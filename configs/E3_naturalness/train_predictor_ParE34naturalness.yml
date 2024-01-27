@@ -1,0 +1,27 @@
+task: fit_E3
+data:
+  data_file: data/ParD3/ground_truth_ParD3_E3_wt_naturalness_percentile_0.4.csv
+  ref_seq_fasta: data/ParD3/wt_seq.fasta
+  split_val_by_mutation_sites: False
+  augment_negative: True
+  augment_value: null
+  label_column: fit_E3
+
+model:
+  model_type: BaseCNN
+  n_tokens: 20
+  kernel_size: 5
+  input_size: 256
+  dropout: 0.0
+  make_one_hot: True
+  activation: relu
+  linear: True
+
+train:
+  seed: 42
+  num_epochs: 10000
+  batch_size: 128
+  early_stop: 20
+  lr: 1.e-3
+  wd: 1.e-5
+  loss: MSELoss

@@ -1,0 +1,9 @@
+gt_csv_path: data/gb1/ground_truth_gb1_ddg.csv
+base_pool_path: data/gb1/ground_truth_gb1_ddg_percentile_0.4.csv
+sample_path: logs_new/train_predictor_ddg_0_0.4_2023_10_05__15_12_56_agument/samples_20231005-163745/seed_1.csv
+num_select: 500
+selection_method: random_selection # topk_selection, nested_selection, random_selection, single_task_selection, max_hv_selection
+inverse_sign_1: False
+inverse_sign_2: True
+ref_score_1: 116.583
+ref_score_2: 0.0

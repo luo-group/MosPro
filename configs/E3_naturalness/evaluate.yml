@@ -1,0 +1,10 @@
+gt_csv_path: data/ParD3/ground_truth_ParD3_E3_E2_wt_naturalness.csv
+base_pool_path: data/ParD3/ground_truth_ParD3_E3_wt_naturalness_percentile_0.4.csv
+sample_path: logs_new/train_predictor_E2_0.1_0.4_2023_10_07__17_33_57_augment/samples_20231007-174030/seed_1.csv
+num_select: 500
+selection_method: random_selection # topk_selection, nested_selection, random_selection, single_task_selection, max_hv_selection
+inverse_sign_1: True
+inverse_sign_2: True
+ref_score_1: -0.1503967462274907
+ref_score_2: -17.19500732421875
+# (-0.1503967462274907, -0.2333410324503802)

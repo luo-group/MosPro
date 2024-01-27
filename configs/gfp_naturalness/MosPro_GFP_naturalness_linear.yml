@@ -1,0 +1,34 @@
+task: GFP
+obj_1: naturalness
+obj_2: GFP
+predictor_1_dir: logs_percentile_0.4/GFP_naturalness/train_predictor_naturalness4GFP_percentile_0.4_2024_01_20__13_31_10_augment
+predictor_2_dir: logs_percentile_0.4/GFP_naturalness/train_predictor_GFP_percentile_0.4_2024_01_20__13_28_14_augment
+predictor_1_type: BaseCNN
+predictor_2_type: BaseCNN
+csv_path: data/GFP/ground_truth_GFP_wt_naturalness_percentile_0.4.csv
+cluster_cutoff: 500
+cluster_method: null # moo or null
+max_visits: 1
+max_epochs: 15
+# run_name: run_${now:%Y-%m-%d}_${now:%H-%M-%S} #IE_${run.max_epochs}  -- use this name if you don't want the date, but instead the number of epochs
+debug: False
+seed: 1
+temperature: 0.01
+gibbs_samples: 100
+verbose: False
+ckpt_name: best_checkpoints.pt
+inverse_sign_1: False
+inverse_sign_2: False
+gradient_compose_method: linear # average, pareto, mgda
+balance_weight_1: 1
+balance_weight_2: 1
+weight_1: 1.0
+weight_2: 1.0
+lambda_method: lambda
+lambd: 1.0
+num_pref_vec: 5
+pref_index: 0
+linear_weight_1: 0.5
+linear_weight_2: 0.5
+mutation_sites: null
+normalize_grad: False
