@@ -12,7 +12,7 @@ python scripts/train_predictor.py path/to/config --logdir logs
 
 ## Run MosPro sampling
 ```
-python scripts/MosPro.py path/to/config --logdir logs
+python scripts/run_MosPro.py path/to/config --logdir logs
 ```
 The config files can be found in the `configs` directory and they are organized in subdirectories according to different property objectives. Make sure you change the predictor path in the sampling configuration file to your own.
 
