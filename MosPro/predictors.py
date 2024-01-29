@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 # import esm_one_hot
-from datasets.fitness_dataset import aa2idx, AA_LIST
+from .fitness_dataset import aa2idx, AA_LIST
 
 class LengthMaxPool1D(nn.Module):
     def __init__(self, in_dim, out_dim, linear=False, activation='relu'):

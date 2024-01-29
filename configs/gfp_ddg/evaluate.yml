@@ -7,7 +7,7 @@ topk2: 50
 repaired_ref_pdb: data/foldx/outputs_af2/ref_seq_af2_Repair.pdb
 ground_truth_stability: data/GFP/stability_foldx_deduplicate_af2.csv
 ground_truth_GFP: data/GFP/GFP_ground_truth_deduplicate.csv
-GFP_oracle_dir: oracle_GFP_ggs
+GFP_oracle_dir: oracles/GFP
 foldx_cache: data/foldx/cache.json
 selection_method: random_selection # topk_selection, nested_selection, random_selection, single_task_selection, max_hv_selection
 num_select: 500

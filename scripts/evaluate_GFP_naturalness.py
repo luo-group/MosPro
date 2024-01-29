@@ -11,10 +11,10 @@ from utils import common
 from utils import eval
 from utils.common import sec2min_sec
 from utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
-from models import BaseCNN
+from MosPro.predictors import BaseCNN
 from gen_naturalness import NaturalnessGenerator, load_single_seq_fasta
 from scripts.evaluate_GFP_stability import random_selection
-from datasets.fitness_dataset import seq2indices
+from MosPro.fitness_dataset import seq2indices
 
 now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 logger = common.get_logger(__name__)

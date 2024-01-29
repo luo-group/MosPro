@@ -10,7 +10,7 @@ from scipy.cluster.hierarchy import linkage, fcluster
 from tqdm import tqdm
 tqdm.pandas()
 from datetime import datetime
-from models.samplers import Encoder
+from .samplers import Encoder
 
 def get_negative_aug_data(num_neg_samples: int, neg_aug_dict: dict, sample_length: int, alphabet: str):
     neg_target = neg_aug_dict['value']

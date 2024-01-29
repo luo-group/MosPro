@@ -12,8 +12,8 @@ from tqdm.auto import tqdm
 from utils import common
 from utils.eval import calculate_rmse, calculate_mae
 
-from datasets import FitnessDataset
-from models import BaseCNN
+from MosPro.fitness_dataset import FitnessDataset
+from MosPro.predictors import BaseCNN
 
 torch.set_num_threads(1)
 
@@ -135,7 +135,7 @@ def main():
     logger.info(args)
     logger.info(config)
     shutil.copyfile(args.config, os.path.join(log_dir, os.path.basename(args.config)))
-    shutil.copytree('./models', os.path.join(log_dir, 'models'))
+    shutil.copytree('./MosPro', os.path.join(log_dir, 'models'))
     
     # datasets
     all_data = FitnessDataset(config.data.data_file, config.data.label_column, config.data)

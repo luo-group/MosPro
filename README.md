@@ -1,21 +1,9 @@
 # Pareto-optimal sampling for multi-objective protein sequence design
 
-## Dependencies
-- torch
-- torchmetrics
-- tqdm
-- omegaconf
-- pandas
-- numpy
-- joblib
-- easydict
-- pyyaml
-- pymoo
-- polyleven
-- fair-esm
+## Download data and oracles
+Download `data.zip` from [here](https://www.dropbox.com/scl/fi/v6rsdcnah88vfp4wkmn9z/data.zip?rlkey=atphgvxj5acwzmya9vp0uemdw&dl=0), unzip it as a directory `data` and put it under the main directory. 
 
-## Download data
-Download `data.zip` from [here](https://www.dropbox.com/scl/fi/v6rsdcnah88vfp4wkmn9z/data.zip?rlkey=atphgvxj5acwzmya9vp0uemdw&dl=0), unzip it as a directory `data` and put it under the main directory.
+Download `oracle.zip` from [here](https://www.dropbox.com/scl/fi/4btqejohjbj6h75hlvn1w/oracles.zip?rlkey=7k4p3rf8ynv2a8xwa4q70irrj&dl=0), unzip it as a directory `oracle` and put it under the main directory.
 
 ## Train sequence-property predictors
 ```

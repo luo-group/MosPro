@@ -10,8 +10,8 @@ from torch.utils.data import DataLoader
 import pandas as pd
 import torch
 # from models.GWG_module import GwgPairSampler
-from models.samplers import MosProSampler
-from datasets.sequence_dataset import PreScoredSequenceDataset
+from MosPro.samplers import MosProSampler
+from MosPro.sequence_dataset import PreScoredSequenceDataset
 import argparse, shutil, yaml
 from utils import common
 import datetime

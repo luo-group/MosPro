@@ -1,0 +1,14 @@
+torch==1.13.1
+torchmetrics==1.2.1
+tqdm==4.66.1
+omegaconf==2.3.0
+pandas==2.0.3
+numpy==1.24.4
+joblib==1.3.2
+easydict==1.11
+pyyaml==6.0.1
+pymoo==0.6.1.1
+polyleven==0.8
+fair-esm==2.0.0
+scipy==1.10.1
+biopython==1.83

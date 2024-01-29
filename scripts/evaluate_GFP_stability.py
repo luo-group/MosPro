@@ -11,9 +11,11 @@ from utils import common
 from utils import eval
 from utils.common import sec2min_sec
 from utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
-from models import BaseCNN
+from MosPro.predictors import BaseCNN
 import torch
 import random
+from MosPro.fitness_dataset import seq2indices
+
 
 now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 logger = common.get_logger(__name__)
@@ -122,8 +124,6 @@ def evaluate_stability(sampled_seqs, config, args):
     results = collect_foldx_results(out_dir, num_batches, sampled_seqs, uncached_seqs, os.path.dirname(config.sample_path), config, args)
     
     return results
-
-from datasets.fitness_dataset import seq2indices
 
 def evaluate_GFP(sampled_seqs, config, args):
     for root, dirs, files in os.walk(config.GFP_oracle_dir):
