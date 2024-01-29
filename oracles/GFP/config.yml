@@ -1,9 +1,0 @@
-model:
-  model_type: BaseCNN
-  n_tokens: 20
-  kernel_size: 5
-  input_size: 256
-  dropout: 0.0
-  make_one_hot: True
-  activation: relu
-  linear: True
