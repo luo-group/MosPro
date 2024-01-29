@@ -9,11 +9,11 @@ from torchmetrics.functional import spearman_corrcoef, pearson_corrcoef
 import os, argparse, time, shutil
 from tqdm.auto import tqdm
 
-from utils import common
-from utils.eval import calculate_rmse, calculate_mae
+from MosPro.utils import common
+from MosPro.utils.eval import calculate_rmse, calculate_mae
 
-from MosPro.fitness_dataset import FitnessDataset
-from MosPro.predictors import BaseCNN
+from MosPro.datasets.fitness_dataset import FitnessDataset
+from MosPro.models.predictors import BaseCNN
 
 torch.set_num_threads(1)
 

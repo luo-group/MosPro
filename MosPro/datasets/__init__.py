@@ -1,0 +1,2 @@
+from MosPro.datasets.fitness_dataset import FitnessDataset
+from MosPro.datasets.sequence_dataset import PreScoredSequenceDataset

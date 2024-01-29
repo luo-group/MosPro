@@ -6,7 +6,7 @@ import esm
 import pandas as pd
 import os, json, time, copy, argparse, datetime, shutil
 from tqdm import tqdm
-from utils import common
+from MosPro.utils import common
 from Bio import SeqIO
 
 class NaturalnessGenerator:

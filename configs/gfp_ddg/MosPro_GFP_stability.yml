@@ -1,8 +1,8 @@
 task: GFP
 obj_1: stability
 obj_2: GFP
-predictor_1_dir: logs_predictor/train_predictor_ddg4GFP_percentile_0.4_2024_01_29__00_28_59
-predictor_2_dir: logs_predictor/train_predictor_GFP4ddg_2024_01_29__00_28_19
+predictor_1_dir: logs_predictor/train_predictor_ddg4GFP_2024_01_29__10_01_48
+predictor_2_dir: logs_predictor/train_predictor_GFP4ddg_2024_01_29__10_02_20
 predictor_1_type: BaseCNN
 predictor_2_type: BaseCNN
 csv_path: data/GFP/ground_truth_GFP_stability_percentile_0.4.csv

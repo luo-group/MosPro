@@ -7,14 +7,14 @@ from tqdm import tqdm
 # from Bio import SeqIO
 import argparse, datetime, json, time, random, os
 import numpy as np
-from utils import common
-from utils import eval
-from utils.common import sec2min_sec
-from utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
-from MosPro.predictors import BaseCNN
+from MosPro.utils import common
+from MosPro.utils import eval
+from MosPro.utils.common import sec2min_sec
+from MosPro.utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
+from MosPro.models.predictors import BaseCNN
 from gen_naturalness import NaturalnessGenerator, load_single_seq_fasta
 from scripts.evaluate_GFP_stability import random_selection
-from MosPro.fitness_dataset import seq2indices
+from MosPro.datasets.fitness_dataset import seq2indices
 
 now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 logger = common.get_logger(__name__)

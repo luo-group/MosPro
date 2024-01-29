@@ -7,14 +7,14 @@ from Bio import SeqIO
 import argparse, datetime, json, time
 import pandas as pd
 import numpy as np
-from utils import common
-from utils import eval
-from utils.common import sec2min_sec
-from utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
-from MosPro.predictors import BaseCNN
+from MosPro.utils import common
+from MosPro.utils import eval
+from MosPro.utils.common import sec2min_sec
+from MosPro.utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
+from MosPro.models.predictors import BaseCNN
 import torch
 import random
-from MosPro.fitness_dataset import seq2indices
+from MosPro.datasets.fitness_dataset import seq2indices
 
 
 now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
@@ -41,7 +41,7 @@ def prepare_foldx_data(sampled_seqs, tmp_dir, ref_seq_fasta):
     with open(os.path.join(tmp_dir, 'mut_seqs.json'), 'w') as f:
         json.dump(mut_str_list, f)
     batch_size = 2
-    num_batches = int(np.ceil(len(mut_str_list) / batch_size).item())
+    num_batches = int(np.ceil(len(mut_str_list) / batch_size))
     logger.info(f'num_batches: {num_batches}')
     for i in range(num_batches):
         start = i * batch_size
@@ -94,8 +94,8 @@ def collect_foldx_results(out_dir, num_batches, sampled_seqs, uncached_seqs, sav
     # df.to_csv(os.path.join(save_dir, 'foldx_results.csv'), index=False)
     
     gt = pd.read_csv(config.ground_truth_stability)
-    max_seen_ddg = np.max(gt.target).item()
-    min_seen_ddg = np.min(gt.target).item()
+    max_seen_ddg = np.max(gt.target)
+    min_seen_ddg = np.min(gt.target)
     normalize = lambda x: (x - min_seen_ddg) / (max_seen_ddg - min_seen_ddg)
     normalized_ddg_list = [normalize(x) for x in ddg_list]
     
@@ -145,8 +145,8 @@ def evaluate_GFP(sampled_seqs, config, args):
         outputs.append(output)
         
     gt = pd.read_csv(config.ground_truth_GFP)
-    max_seen = np.max(gt.target).item()
-    min_seen = np.min(gt.target).item()
+    max_seen = np.max(gt.target)
+    min_seen = np.min(gt.target)
     normalize = lambda x: (x - min_seen) / (max_seen - min_seen)
     outputs_normalized = [normalize(x) for x in outputs]
     logger.info(f'task\tmean\tmedian\tstd\tmax\tmin')
@@ -160,8 +160,8 @@ def evaluate_GFP(sampled_seqs, config, args):
 def get_hypervolume(stability_results, GFP_results, config):
     gt_GFP = pd.read_csv(config.ground_truth_GFP)
     gt_stability = pd.read_csv(config.ground_truth_stability)
-    min_seen_GFP = np.min(gt_GFP.target).item()
-    max_seen_stability = np.max(gt_stability.target).item()
+    min_seen_GFP = np.min(gt_GFP.target)
+    max_seen_stability = np.max(gt_stability.target)
     scores_stability = stability_results['scores_origin']
     scores_GFP = GFP_results['scores_origin']
     # inverse_scores_stability = [-x for x in scores_stability]
@@ -174,14 +174,14 @@ def get_hypervolume(stability_results, GFP_results, config):
     inverse_scores_GFP_normalized = [-x for x in scores_GFP_normalized]
     hv_normalized = calc_hypervolume(stability_results['scores_normalized'], inverse_scores_GFP_normalized, 1, 0)
     # calculate reference hv
-    worst_scores_stability = [np.max(gt_stability.target).item()] * len(scores_stability)
-    worst_scores_GFP = [np.min(gt_GFP.target).item()] * len(scores_GFP)
+    worst_scores_stability = [np.max(gt_stability.target)] * len(scores_stability)
+    worst_scores_GFP = [np.min(gt_GFP.target)] * len(scores_GFP)
     inverse_worst_scores_GFP = [-x for x in worst_scores_GFP]
     ref_hv = calc_hypervolume(worst_scores_stability, inverse_worst_scores_GFP, max_seen_stability, inverse_min_seen_GFP)
     logger.info(f'ref_hv_worst: {ref_hv}')
     
-    best_scores_stability = [np.min(gt_stability.target).item()] * len(scores_stability)
-    best_scores_GFP = [np.max(gt_GFP.target).item()] * len(scores_GFP)
+    best_scores_stability = [np.min(gt_stability.target)] * len(scores_stability)
+    best_scores_GFP = [np.max(gt_GFP.target)] * len(scores_GFP)
     inverse_best_scores_GFP = [-x for x in best_scores_GFP]
     ref_hv = calc_hypervolume(best_scores_stability, inverse_best_scores_GFP, max_seen_stability, inverse_min_seen_GFP)
     logger.info(f'ref_hv_best: {ref_hv}')

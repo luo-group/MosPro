@@ -7,7 +7,7 @@ from polyleven import levenshtein
 import pandas as pd
 import time
 import logging
-from common import get_logger
+from MosPro.utils.common import get_logger
 
 logger = get_logger('eval')
 

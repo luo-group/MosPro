@@ -1,9 +1,9 @@
 import sys
 sys.path.append('.')
 import os, argparse, time, datetime, json, random
-from utils import common
+from MosPro.utils import common
 import pandas as pd
-from utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
+from MosPro.utils.eval import calc_hypervolume, diversity, novelty, greedy_selection
 import numpy as np
 
 now = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')

@@ -7,14 +7,14 @@ import time
 import torch.distributions as dists
 import torch.nn.functional as F
 import pandas as pd
-from .predictors import BaseCNN
+from MosPro.models.predictors import BaseCNN
 from omegaconf import OmegaConf
 import os
 import torch.nn as nn
-from utils.pareto_moosvgd import compose_two_gradients_moosvgd
-from utils.pareto_pref_vec import get_d_paretomtl, circle_points, get_d_paretomtl_batch
+from MosPro.utils.pareto_moosvgd import compose_two_gradients_moosvgd
+from MosPro.utils.pareto_pref_vec import get_d_paretomtl, circle_points, get_d_paretomtl_batch
 from typing import List
-from utils.min_norm_solvers import MinNormSolver
+from MosPro.utils.min_norm_solvers import MinNormSolver
 
 to_np = lambda x: x.cpu().detach().numpy()
 to_list = lambda x: to_np(x).tolist()
