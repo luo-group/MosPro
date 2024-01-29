@@ -1,7 +1,5 @@
-# Pareto-optimal sampling for multi-objective protein sequence design
-
-## Download data and oracles
-Download the data and oracles from Dropbox and unzip them to the main directory
+## Download data
+Download the dataset and oracles from Dropbox and unzip them to the main directory
 ```
 wget https://www.dropbox.com/scl/fi/v6rsdcnah88vfp4wkmn9z/data.zip?rlkey=atphgvxj5acwzmya9vp0uemdw&dl=0 -O data.zip
 wget https://www.dropbox.com/scl/fi/4btqejohjbj6h75hlvn1w/oracles.zip?rlkey=7k4p3rf8ynv2a8xwa4q70irrj&dl=0 -O oracles.zip
@@ -24,10 +22,10 @@ The config files can be found in the `configs` directory and they are organized 
 Each experiment will create a corresponding log directory under the specified directory. All the checkpoints and sample results will be stored in the log directory.
 
 ## Evaluate sample results
-To evaluate the sample results of MosPro on a certain benchmarking dataset, use the corresponding evaluation script. For example, to evaluate the samples of GFP-stability dataset, run the following:
+To evaluate the sample results of MosPro on a certain benchmarking dataset, use the corresponding evaluation script. For example, to evaluate the samples of the GFP-stability dataset, run the following:
 ```
 python scripts/evaluate_GFP_stability.py configs/gfp_ddg/evaluate.yml --sample_path path/to/sample_csv
 ```
-A evaluation result file and metric file for 500 randomly selected samples will be generated in the same diretory of `path/to/sample_csv`. 
+An evaluation result file and metric file for 500 randomly selected samples will be generated in the same directory of `path/to/sample_csv`. 
 
-Note that for evaluating stability you need to download [FoldX](https://foldxsuite.crg.eu/), get a license for activation., and copy the FoldX executable file to the main directory.
+Note that for evaluating protein stability you need to download [FoldX](https://foldxsuite.crg.eu/) and copy the FoldX executable file to the main directory of this repo.
